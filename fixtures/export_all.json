@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "presets": {
+    "Demo (example)": {
+      "name": "Demo exercise (example only)",
+      "sets_enabled": true,
+      "sets": 3,
+      "reps_enabled": true,
+      "reps": 10,
+      "hold_enabled": true,
+      "hold": 10,
+      "rep_break": 5,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 5
+    },
+    "Alpha hold": {
+      "name": "Alpha",
+      "sets_enabled": false,
+      "sets": 2,
+      "reps_enabled": true,
+      "reps": 10,
+      "hold_enabled": true,
+      "hold": 30,
+      "rep_break": 3,
+      "rest_enabled": true,
+      "rest": 45,
+      "get_ready": 0
+    },
+    "Open ended": {
+      "name": "Open set",
+      "sets_enabled": true,
+      "sets": 3,
+      "reps_enabled": false,
+      "reps": 7,
+      "hold_enabled": true,
+      "hold": 5,
+      "rep_break": 0,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 3
+    },
+    "Manual stopwatch": {
+      "name": "Stopwatch",
+      "sets_enabled": false,
+      "sets": 3,
+      "reps_enabled": false,
+      "reps": 10,
+      "hold_enabled": false,
+      "hold": 12,
+      "rep_break": 4,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 10
+    }
+  }
+}

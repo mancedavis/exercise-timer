@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "presets": {
+    "Open ended": {
+      "name": "Open set",
+      "sets_enabled": true,
+      "sets": 3,
+      "reps_enabled": false,
+      "reps": 7,
+      "hold_enabled": true,
+      "hold": 5,
+      "rep_break": 0,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 3
+    }
+  }
+}

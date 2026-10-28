@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "presets": {
+    "alpha hold": {
+      "name": "Alpha REPLACED",
+      "sets_enabled": true,
+      "sets": 3,
+      "reps_enabled": true,
+      "reps": 10,
+      "hold_enabled": true,
+      "hold": 10,
+      "rep_break": 5,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 5
+    },
+    "New One": {
+      "name": "Brand new",
+      "sets_enabled": true,
+      "sets": 4,
+      "reps_enabled": true,
+      "reps": 10,
+      "hold_enabled": true,
+      "hold": 10,
+      "rep_break": 5,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 5
+    },
+    "Open ended": {
+      "name": "Open REPLACED",
+      "sets_enabled": true,
+      "sets": 3,
+      "reps_enabled": true,
+      "reps": 10,
+      "hold_enabled": true,
+      "hold": 10,
+      "rep_break": 5,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 5
+    },
+    "Brand New 2": {
+      "name": "Another",
+      "sets_enabled": true,
+      "sets": 3,
+      "reps_enabled": true,
+      "reps": 10,
+      "hold_enabled": true,
+      "hold": 10,
+      "rep_break": 5,
+      "rest_enabled": false,
+      "rest": 30,
+      "get_ready": 5
+    }
+  }
+}

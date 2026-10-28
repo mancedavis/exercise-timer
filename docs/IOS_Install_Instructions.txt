@@ -1,0 +1,185 @@
+EXERCISE TIMER - INSTALL ON IPHONE AND IPAD
+===========================================
+
+Address of the app:  https://mancedavis.github.io/exercise-timer/
+
+You do not need a computer, a terminal, Xcode, or an Apple developer account.
+You only need Safari on your iPhone or iPad and an internet connection for the
+first visit.
+
+Good to know before you start
+- The first visit needs the internet. After that, exercise sessions work
+  without a connection.
+- Your presets live on each device separately. The iPhone, the iPad and the
+  Windows app do NOT sync with each other. You move presets by hand using
+  small ".json" files (steps 7 to 9).
+- Those exported files are your backup. If the app's data is ever removed
+  (for example you delete the Home Screen app), the files are how you get
+  your presets back.
+
+
+STEP 1. OPEN THE APP IN SAFARI ON THE IPHONE
+  1. On the iPhone, open Safari (the blue compass).
+  2. Type this address in the address bar and go to it:
+        https://mancedavis.github.io/exercise-timer/
+  3. You should see a black screen with a big number and a Start button.
+  Use Safari itself (not a link opened inside another app) so the
+  "Add to Home Screen" choice appears.
+
+STEP 2. ADD IT TO THE HOME SCREEN AND OPEN THE INSTALLED APP
+  1. Tap the Share button (a square with an arrow pointing up). Depending on
+     your iOS version and Safari layout it is next to the address bar, at the
+     bottom of the screen, or inside the "..." menu.
+  2. If you see a short list, tap "View More" to see the full list.
+  3. Scroll the list and tap "Add to Home Screen".
+     If it is not in the list, scroll to the bottom, tap "Edit Actions",
+     and add "Add to Home Screen" there.
+  4. Leave "Open as Web App" switched ON, then tap "Add".
+  5. Go to your Home Screen and tap the new "Exercise Timer" icon. From now on
+     always start it from this icon. It opens full screen, without Safari's
+     address bar.
+  Note: Apple has moved these buttons around in different iOS versions, but
+  the words "Add to Home Screen", "Open as Web App" and "Add" are the same.
+
+STEP 3. REPEAT ON THE IPAD
+  Do steps 1 and 2 again on the iPad. The icon only appears on the device
+  where you add it, and each device keeps its own presets.
+
+STEP 4. FINISH THE ONE-TIME ONLINE SETUP AND CHECK OFFLINE READINESS
+  1. Open the app from its Home Screen icon while you are online.
+  2. Look at the small label at the top right. It first says
+     "Setting up offline..." and then changes to "Offline ready". That means
+     everything needed is stored on the device.
+  3. Wait for "Offline ready" before you rely on it without internet.
+  4. To prove it: turn on Airplane Mode, close the app completely (swipe it
+     away in the app switcher), and open it again from the icon. It should
+     start normally.
+  If it never says "Offline ready", see Troubleshooting at the end.
+
+STEP 5. TRY A SMALL DEMONSTRATION EXERCISE
+  1. Tap "Settings & presets". Set: Sets ON = 2, Reps ON = 3, Hold ON = 4,
+     Rep break = 2, Get ready = 3. Tap "Done".
+  2. Tap "Start". You hear a short beep when each hold starts and ends, and a
+     three-note tune when the exercise is complete.
+     - SOUND: if you hear nothing, turn up the volume, flip the Silent switch
+       so no orange is showing (iPhone), and make sure "Sound cues" is ticked
+       in Settings & presets.
+  3. Tap "Pause" in the middle of a hold. The numbers freeze. Tap "Resume" and
+     it carries on from exactly where it stopped.
+  4. SCREEN STAYS AWAKE: while an exercise runs, the app asks the device to
+     keep the screen on. Some devices or iOS versions refuse (the app shows a
+     note) and some silently ignore the request. If the screen still dims or
+     locks during an exercise, fix it yourself: open the iPhone or iPad
+     Settings app > Display & Brightness > Auto-Lock > Never. Remember to set
+     it back afterwards if you like.
+  5. Tap "Stop / Reset" to clear the run.
+
+STEP 6. LEAVING THE APP OR LOCKING THE DEVICE PAUSES THE WORKOUT
+  This app cannot keep timing while the screen is locked or another app is in
+  front. Instead it protects your progress:
+  - If you lock the device, switch to another app, or go to the Home Screen,
+    the workout PAUSES immediately.
+  - When you come back you will see "Paused while away". Tap "Resume" to
+    continue from where you left off. Time spent away is never counted and the
+    app never rushes through missed reps.
+  - If iOS closes the app while you are away, the app restores your last saved
+    position, paused. That saved position can be up to about 5 seconds
+    behind. Tap "Resume" to continue or "Stop / Reset" to start over.
+
+STEP 7. EXPORT PRESETS FROM WINDOWS AND GET THE FILE TO YOUR IPHONE OR IPAD
+  Windows cannot AirDrop. Use one of these ordinary ways instead.
+  1. In the Windows Exercise Timer, click "Export file...". Choose "Yes" for all
+     presets (or "No" for just the selected one), pick a place such as the
+     Desktop, and click Save. You get a file like
+     exercise-timer-presets-20260115.json.
+  2. Get that file onto the iPhone/iPad in either of these ways:
+     - iCloud Drive: put the file in your iCloud Drive folder on Windows (iCloud
+       for Windows). On the iPhone/iPad open the Files app > iCloud Drive and
+       wait for it to appear.
+     - Email: email the file to yourself as an attachment. On the iPhone/iPad
+       open the email, tap the attachment, tap the Share button, and choose
+       "Save to Files". Pick a folder you will remember (for example
+       "On My iPhone").
+
+STEP 8. IMPORT THE FILE INSIDE THE INSTALLED HOME SCREEN APP
+  1. Open Exercise Timer from its HOME SCREEN ICON (not from Safari). The
+     Safari tab and the Home Screen app keep separate data: presets imported
+     into a Safari tab will NOT appear in the installed app.
+  2. Tap "Settings & presets", then "Import file...".
+  3. Choose the .json file in the Files picker.
+  4. If a preset with the same name already exists, you are asked what to do:
+     "Replace" (use the imported one), "Skip" (keep what you have), or
+     "Cancel import" (change nothing). A tick-box lets you give the same answer
+     for all the remaining conflicts.
+  5. You will see a result such as "3 added, 1 replaced, 2 skipped". If
+     anything is wrong with the file, you are told, and nothing is changed.
+  Importing and exporting are switched off while an exercise is running or
+  paused, including one the app restored after it was closed. Tap
+  "Stop / Reset" first.
+
+STEP 9. EXPORT FROM THE IPHONE OR IPAD AND BRING IT BACK TO WINDOWS
+  1. In the app tap "Settings & presets", then "Export file...". If you have
+     more than one preset you are asked whether to export all of them or
+     only the selected one (with a single preset it just exports that one).
+  2. The share sheet opens. Choose how to send the file:
+     - "Save to Files" (to keep it, or to put it in iCloud Drive), or
+     - AirDrop to another iPhone, iPad or Mac, or
+     - Mail or Messages to yourself, or any other file-sharing app.
+     If no share sheet appears, the app downloads the file instead; find it in
+     the Files app under Downloads. If the file opens on the screen instead of
+     saving, tap the Share button there and choose "Save to Files".
+  3. If you close the share sheet without sending, nothing is wrong. The app
+     simply reports "Export cancelled".
+  4. On Windows, get the file onto the PC (iCloud Drive, email attachment, or
+     any file transfer), then in the Windows Exercise Timer click
+     "Import file..." and select it. The same Replace / Skip / Cancel choices
+     apply.
+  The Windows app can also import its own presets.json file
+  (in %APPDATA%\ExerciseTimer) and files exported from the iPhone or iPad.
+
+STEP 10. CONFLICTS, BACKUPS, UPDATES AND TROUBLESHOOTING
+  Conflicts: names are compared ignoring capital letters ("Plank" and "plank"
+  are the same preset). Nothing is changed until you have answered every
+  question, and the whole import is saved in one go.
+
+  Backups: export all presets to a .json file now and then and keep it in
+  iCloud Drive or email it to yourself. Importing that file restores them.
+
+  Updates: when a new version is available, a note "A new version is ready"
+  with an "Update now" button appears. It is only usable when no exercise is
+  running, and it never deletes your presets. Open the app online now and then
+  to receive updates.
+
+  Troubleshooting
+  - No "Add to Home Screen" in the Share list: use Safari (not Private
+    Browsing); scroll to the bottom of the share list and tap "Edit Actions" to
+    add it; update iOS or iPadOS if the choice is still missing.
+  - No sound: raise the volume, flip the Silent switch (no orange showing),
+    tick "Sound cues", and tap Start or Resume (iOS only allows sound after a
+    tap). Sound never affects the timing.
+  - Import does nothing or says the file is not valid: make sure it is a .json
+    file exported from Exercise Timer (or a Windows presets.json), not renamed
+    or opened and re-saved in another program. Files over 256 KB are refused.
+  - Imported presets are missing: you probably imported into Safari instead of
+    the Home Screen app. Open the Home Screen icon and import again.
+  - The label says "Offline setup incomplete (check connection)": the files
+    did not finish downloading. Connect to Wi-Fi and keep the app open; the label
+    changes to "Offline ready" by itself when it finishes. If it does not, close
+    and reopen the app.
+  - The label says "Offline not available": this browser or mode does not allow
+    offline storage (for example Private Browsing in Safari). Install it from
+    normal Safari as in Step 2.
+  - Never says "Offline ready": open the app from the Home Screen icon while
+    connected to Wi-Fi, keep it open for about 30 seconds, then close and reopen.
+    If you ever remove the Home Screen icon, repeat steps 2 and 4 and re-import
+    your exported file.
+  - Saved presets disappeared: iOS can remove website data when storage is
+    cleared or the Home Screen icon is deleted. Import your exported file.
+  - Screen locks during exercise: see Step 5, point 4 (Auto-Lock > Never).
+
+A last check only you can do: the app was tested in desktop browsers, not on a
+real iPhone or iPad. On your own devices please confirm (1) Add to Home Screen
+and Airplane Mode relaunch, (2) the beeps are audible, (3) the screen stays on
+during a long hold, (4) locking the device pauses the workout and Resume
+continues it, (5) Import picks a file from Files, and (6) Export brings up the
+share sheet or saves a file you can find in Files.

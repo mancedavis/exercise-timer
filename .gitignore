@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+dist/
+releases/
+node_modules/
+.claude/
+*.spec
+*.bak
+*.tmp
+*.log
+presets.json
+*.bad-*
+web_tests/.out/
+test-results/

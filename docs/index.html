@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exercise Timer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Large-number rep and hold timer with saved presets. Works offline.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Exercise Timer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app" data-phase="idle">
+  <header id="topbar">
+    <button id="menuBtn" type="button" class="btn small">Settings &amp; presets</button>
+    <span id="statusChip" class="chip" role="status"></span>
+  </header>
+
+  <main id="display">
+    <div id="exName"></div>
+    <div id="setText"></div>
+    <div id="phase" class="phase">READY</div>
+    <div id="repBlock">
+      <div id="repRow" class="row"><span id="repNum">0</span><span id="repTotal"></span></div>
+      <div id="repCaption"></div>
+    </div>
+    <div id="timerBlock">
+      <div id="timerRow" class="row"><span id="timerNum">0</span><span id="timerSuffix"></span></div>
+      <div id="banner"></div>
+    </div>
+  </main>
+
+  <div id="notices" aria-live="polite"></div>
+
+  <footer id="controls">
+    <button id="startBtn" type="button" class="btn big primary">Start</button>
+    <button id="pauseBtn" type="button" class="btn big">Pause</button>
+    <button id="stopBtn" type="button" class="btn big">Stop / Reset</button>
+    <button id="finishBtn" type="button" class="btn big">Finish Rep</button>
+    <button id="endBtn" type="button" class="btn big">End Set</button>
+  </footer>
+</div>
+
+<!-- settings and presets -->
+<div id="sheet" class="overlay" hidden>
+  <section class="panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="panel-head">
+      <h2 id="sheetTitle">Settings &amp; presets</h2>
+      <button id="closeSheet" type="button" class="btn small">Done</button>
+    </div>
+    <p id="lockNote" class="muted" hidden>Settings are locked during an exercise. Tap Stop / Reset to edit.</p>
+
+    <h3>Presets</h3>
+    <div class="line">
+      <select id="presetSelect" aria-label="Saved presets"></select>
+      <span id="dirty" class="warn"></span>
+    </div>
+    <div class="btnrow">
+      <button id="saveBtn" type="button" class="btn small">Save</button>
+      <button id="saveAsBtn" type="button" class="btn small">Save as…</button>
+      <button id="renameBtn" type="button" class="btn small">Rename…</button>
+      <button id="deleteBtn" type="button" class="btn small">Delete</button>
+    </div>
+    <div class="btnrow">
+      <button id="importBtn" type="button" class="btn small">Import file…</button>
+      <button id="exportBtn" type="button" class="btn small">Export file…</button>
+      <input id="importFile" type="file" accept=".json,application/json,text/plain" hidden>
+    </div>
+
+    <h3>Exercise</h3>
+    <label class="field"><span>Name</span><input id="f_name" type="text" maxlength="80" autocomplete="off"></label>
+    <div class="field"><label><input id="f_sets_enabled" type="checkbox"> Sets</label><input id="f_sets" type="text" inputmode="numeric" autocomplete="off" aria-label="Sets"></div>
+    <div class="field"><label><input id="f_reps_enabled" type="checkbox"> Reps per set</label><input id="f_reps" type="text" inputmode="numeric" autocomplete="off" aria-label="Reps per set"></div>
+    <div class="field"><label><input id="f_hold_enabled" type="checkbox"> Hold seconds / rep</label><input id="f_hold" type="text" inputmode="numeric" autocomplete="off" aria-label="Hold seconds"></div>
+    <label class="field"><span>Rep break (s)</span><input id="f_rep_break" type="text" inputmode="numeric" autocomplete="off"></label>
+    <div class="field"><label><input id="f_rest_enabled" type="checkbox"> Set rest (s)</label><input id="f_rest" type="text" inputmode="numeric" autocomplete="off" aria-label="Set rest seconds"></div>
+    <label class="field"><span>Get ready (s)</span><input id="f_get_ready" type="text" inputmode="numeric" autocomplete="off"></label>
+    <label class="field check"><input id="soundToggle" type="checkbox"> Sound cues</label>
+    <p id="formError" class="error" role="alert"></p>
+
+    <h3>Help</h3>
+    <p><a href="help.html">Install &amp; help</a> · <a href="IOS_Install_Instructions.txt" download>Download IOS_Install_Instructions.txt</a></p>
+    <p class="muted small-print">Presets are stored on this device only. Export a file to back them up or move them.</p>
+  </section>
+</div>
+
+<!-- message / question dialog -->
+<div id="modal" class="overlay" hidden>
+  <section class="panel narrow" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <input id="modalInput" type="text" maxlength="80" autocomplete="off" hidden>
+    <label id="modalCheckRow" class="check" hidden><input id="modalCheck" type="checkbox"> <span id="modalCheckText"></span></label>
+    <div id="modalButtons" class="btnrow"></div>
+  </section>
+</div>
+
+<noscript>Exercise Timer needs JavaScript.</noscript>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

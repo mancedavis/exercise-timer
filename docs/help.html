@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Install &amp; help · Exercise Timer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="height:auto">
+<div class="help-page">
+  <p><a href="./">← Back to the timer</a></p>
+  <h1>Install &amp; help</h1>
+  <p><a href="IOS_Install_Instructions.txt" download>Download IOS_Install_Instructions.txt</a></p>
+  <pre id="text">Loading the instructions…</pre>
+</div>
+<script>
+  fetch('IOS_Install_Instructions.txt').then(function (r) { return r.text(); }).then(function (t) {
+    document.getElementById('text').textContent = t;   // text only, never markup
+  }).catch(function () {
+    document.getElementById('text').textContent = 'The instructions could not be loaded. Use the download link above.';
+  });
+</script>
+</body>
+</html>

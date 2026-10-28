@@ -1,0 +1,220 @@
+{
+  "invalid": [
+    {
+      "name": "not json",
+      "text": "{nope",
+      "error_contains": "not a valid JSON"
+    },
+    {
+      "name": "empty text",
+      "text": "",
+      "error_contains": "not a valid JSON"
+    },
+    {
+      "name": "array",
+      "text": "[]",
+      "error_contains": "does not contain Exercise Timer presets"
+    },
+    {
+      "name": "no presets key",
+      "text": "{\"version\": 1}",
+      "error_contains": "does not contain Exercise Timer presets"
+    },
+    {
+      "name": "presets is a list",
+      "text": "{\"version\": 1, \"presets\": []}",
+      "error_contains": "does not contain Exercise Timer presets"
+    },
+    {
+      "name": "missing version",
+      "text": "{\"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "no format version"
+    },
+    {
+      "name": "string version",
+      "text": "{\"version\": \"1\", \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "no format version"
+    },
+    {
+      "name": "bool version",
+      "text": "{\"version\": true, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "no format version"
+    },
+    {
+      "name": "version 2",
+      "text": "{\"version\": 2, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "format version 2"
+    },
+    {
+      "name": "version 0",
+      "text": "{\"version\": 0, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "format version 0"
+    },
+    {
+      "name": "no presets",
+      "text": "{\"version\": 1, \"presets\": {}}",
+      "error_contains": "contains no presets"
+    },
+    {
+      "name": "preset not object",
+      "text": "{\"version\": 1, \"presets\": {\"A\": 5}}",
+      "error_contains": "not a set of settings"
+    },
+    {
+      "name": "float count",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 3.0, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Reps per set must be a whole number"
+    },
+    {
+      "name": "float written as 3.0",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10.0, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Reps per set must be a whole number"
+    },
+    {
+      "name": "string number",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": \"3\", \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Sets must be a whole number"
+    },
+    {
+      "name": "bool as number",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": true, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Hold seconds must be a whole number"
+    },
+    {
+      "name": "reps zero",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 0, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Reps per set must be a whole number, 1 to 9999"
+    },
+    {
+      "name": "reps too big",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10000, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Reps per set must be a whole number, 1 to 9999"
+    },
+    {
+      "name": "hold too big",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 86401, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Hold seconds must be a whole number, 1 to 86400"
+    },
+    {
+      "name": "negative break",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": -1, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Rep break must be a whole number, 0 to 86400"
+    },
+    {
+      "name": "huge integer",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 9999999999999999999999999999999999999999}}}",
+      "error_contains": "Get-ready must be a whole number"
+    },
+    {
+      "name": "flag not bool",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": \"no\", \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Set rest on/off must be true or false"
+    },
+    {
+      "name": "flag number",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": 1, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "Sets on/off must be true or false"
+    },
+    {
+      "name": "missing field",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"get_ready\": 5}}}",
+      "error_contains": "Set rest must be a whole number"
+    },
+    {
+      "name": "blank exercise name",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"   \", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "invalid exercise name"
+    },
+    {
+      "name": "padded exercise name",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \" x\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "invalid exercise name"
+    },
+    {
+      "name": "long exercise name",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "invalid exercise name"
+    },
+    {
+      "name": "name not string",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": 5, \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "invalid exercise name"
+    },
+    {
+      "name": "padded preset name",
+      "text": "{\"version\": 1, \"presets\": {\" A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "blank or over-long name"
+    },
+    {
+      "name": "blank preset name",
+      "text": "{\"version\": 1, \"presets\": {\"\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "blank or over-long name"
+    },
+    {
+      "name": "long preset name",
+      "text": "{\"version\": 1, \"presets\": {\"nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "blank or over-long name"
+    },
+    {
+      "name": "duplicate key",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}, \"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "lists \"A\" more than once"
+    },
+    {
+      "name": "duplicate ignoring case",
+      "text": "{\"version\": 1, \"presets\": {\"Plank\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}, \"plank\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "more than once"
+    },
+    {
+      "name": "duplicate field inside preset",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"x\", \"name\": \"y\"}}}",
+      "error_contains": "lists \"name\" more than once"
+    },
+    {
+      "name": "NaN",
+      "text": "{\"version\": 1, \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": NaN, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5}}}",
+      "error_contains": "not a valid JSON"
+    },
+    {
+      "name": "trailing comma",
+      "text": "{\"version\": 1, \"presets\": {},}",
+      "error_contains": "not a valid JSON"
+    }
+  ],
+  "valid": [
+    {
+      "name": "legacy full presets.json",
+      "file": "legacy_windows_presets.json",
+      "names": [
+        "Demo (example)",
+        "Alpha hold",
+        "Open ended",
+        "Manual stopwatch"
+      ]
+    },
+    {
+      "name": "export all",
+      "file": "export_all.json",
+      "names": [
+        "Demo (example)",
+        "Alpha hold",
+        "Open ended",
+        "Manual stopwatch"
+      ]
+    },
+    {
+      "name": "export single",
+      "file": "export_single.json",
+      "names": [
+        "Open ended"
+      ]
+    },
+    {
+      "name": "extra keys ignored",
+      "text": "{\"version\": 1, \"sound\": false, \"last\": \"A\", \"extra\": [1], \"presets\": {\"A\": {\"name\": \"Demo exercise (example only)\", \"sets_enabled\": true, \"sets\": 3, \"reps_enabled\": true, \"reps\": 10, \"hold_enabled\": true, \"hold\": 10, \"rep_break\": 5, \"rest_enabled\": false, \"rest\": 30, \"get_ready\": 5, \"future\": 1}}}",
+      "names": [
+        "A"
+      ]
+    }
+  ]
+}

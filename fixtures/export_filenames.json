@@ -1,0 +1,27 @@
+[
+  {
+    "name": null,
+    "today": "20260115",
+    "expect": "exercise-timer-presets-20260115.json"
+  },
+  {
+    "name": "Wall sit / legs!",
+    "today": "20260115",
+    "expect": "exercise-timer-Wall-sit-legs.json"
+  },
+  {
+    "name": "Demo (example)",
+    "today": "20260115",
+    "expect": "exercise-timer-Demo-example.json"
+  },
+  {
+    "name": "\u00e6\u2014\u00a5\u00e6\u0153\u00ac\u00e8\u00aa\u017e",
+    "today": "20260115",
+    "expect": "exercise-timer-preset.json"
+  },
+  {
+    "name": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "today": "20260115",
+    "expect": "exercise-timer-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.json"
+  }
+]

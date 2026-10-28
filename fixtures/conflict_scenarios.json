@@ -1,0 +1,98 @@
+{
+  "existing_file": "legacy_windows_presets.json",
+  "import_file": "import_overlap.json",
+  "cases": [
+    {
+      "name": "replace all",
+      "decisions": {
+        "alpha hold": "replace",
+        "Open ended": "replace"
+      },
+      "cancel": false,
+      "summary": "2 added, 2 replaced, 0 skipped",
+      "names": [
+        "Demo (example)",
+        "Alpha hold",
+        "Open ended",
+        "Manual stopwatch",
+        "New One",
+        "Brand New 2"
+      ],
+      "exercise_names": {
+        "Demo (example)": "Demo exercise (example only)",
+        "Alpha hold": "Alpha REPLACED",
+        "Open ended": "Open REPLACED",
+        "Manual stopwatch": "Stopwatch",
+        "New One": "Brand new",
+        "Brand New 2": "Another"
+      }
+    },
+    {
+      "name": "skip all",
+      "decisions": {
+        "alpha hold": "skip",
+        "Open ended": "skip"
+      },
+      "cancel": false,
+      "summary": "2 added, 0 replaced, 2 skipped",
+      "names": [
+        "Demo (example)",
+        "Alpha hold",
+        "Open ended",
+        "Manual stopwatch",
+        "New One",
+        "Brand New 2"
+      ],
+      "exercise_names": {
+        "Demo (example)": "Demo exercise (example only)",
+        "Alpha hold": "Alpha",
+        "Open ended": "Open set",
+        "Manual stopwatch": "Stopwatch",
+        "New One": "Brand new",
+        "Brand New 2": "Another"
+      }
+    },
+    {
+      "name": "mixed",
+      "decisions": {
+        "alpha hold": "replace",
+        "Open ended": "skip"
+      },
+      "cancel": false,
+      "summary": "2 added, 1 replaced, 1 skipped",
+      "names": [
+        "Demo (example)",
+        "Alpha hold",
+        "Open ended",
+        "Manual stopwatch",
+        "New One",
+        "Brand New 2"
+      ],
+      "exercise_names": {
+        "Demo (example)": "Demo exercise (example only)",
+        "Alpha hold": "Alpha REPLACED",
+        "Open ended": "Open set",
+        "Manual stopwatch": "Stopwatch",
+        "New One": "Brand new",
+        "Brand New 2": "Another"
+      }
+    },
+    {
+      "name": "cancel",
+      "cancel": true,
+      "summary": null,
+      "names": [
+        "Demo (example)",
+        "Alpha hold",
+        "Open ended",
+        "Manual stopwatch"
+      ],
+      "exercise_names": {
+        "Demo (example)": "Demo exercise (example only)",
+        "Alpha hold": "Alpha",
+        "Open ended": "Open set",
+        "Manual stopwatch": "Stopwatch"
+      }
+    }
+  ]
+}
