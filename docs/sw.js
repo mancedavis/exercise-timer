@@ -5,7 +5,7 @@
 // the app asks (at an idle moment), so cached files from two versions never mix.
 
 // BEGIN GENERATED
-const BUILD = '8f541a9c8e9e';
+const BUILD = 'e2338e69be1d';
 const ASSETS = ["./","./IOS_Install_Instructions.txt","./help.html","./icons/apple-touch-icon.png","./icons/icon-192.png","./icons/icon-512.png","./icons/maskable-512.png","./index.html","./js/app.js","./js/engine.js","./js/sound.js","./js/store.js","./js/transfer.js","./manifest.webmanifest","./styles.css"];
 // END GENERATED
 

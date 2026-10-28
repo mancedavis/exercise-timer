@@ -294,7 +294,7 @@ const PROFILES = ['iPhone SE', 'iPhone SE landscape', 'iPhone 15', 'iPhone 15 la
 async function measure(page) {
   return page.evaluate(() => {
     const vw = innerWidth, vh = innerHeight;
-    const ids = ['topbar', 'exName', 'setText', 'phase', 'repNum', 'repTotal', 'repCaption', 'timerNum', 'timerSuffix', 'banner', 'startBtn', 'pauseBtn', 'stopBtn', 'finishBtn', 'endBtn', 'menuBtn', 'statusChip'];
+    const ids = ['topbar', 'exName', 'setText', 'phase', 'repNum', 'repTotal', 'repCaption', 'timerNum', 'timerSuffix', 'banner', 'startBtn', 'pauseBtn', 'stopBtn', 'finishBtn', 'endBtn', 'menuBtn', 'statusChip', 'credit'];
     const out = { vw, vh, outside: [], small: [], sizes: {}, overlaps: [] };
     for (const id of ids) {
       const el = document.getElementById(id);
@@ -308,6 +308,8 @@ async function measure(page) {
     const rects = (id) => document.getElementById(id).getBoundingClientRect();
     const controls = document.getElementById('controls').getBoundingClientRect();
     for (const id of ['banner', 'timerNum', 'repNum']) if (rects(id).bottom > controls.top + 1) out.overlaps.push(id);
+    if (rects('credit').top < controls.bottom - 1) out.overlaps.push('credit');
+    out.credit = document.getElementById('credit').textContent;
     const stack = ['exName', 'setText', 'phase', 'repRow', 'repCaption', 'timerRow', 'banner'].filter((id) => document.getElementById(id).getClientRects().length);
     for (const row of ['repRow', 'timerRow']) { const el = document.getElementById(row); if (el.scrollWidth > el.clientWidth + 1) out.overlaps.push(`${row} wider than its box`); }
     out.scrollX = document.documentElement.scrollWidth - vw;
@@ -346,7 +348,9 @@ describe('mobile layouts (WebKit iPhone and iPad profiles, portrait and landscap
         assert.deepEqual(m.overlaps, [], `${where}: overlaps`);
         assert.ok(m.scrollX <= 1, `${where}: horizontal scroll ${m.scrollX}`);
         assert.ok(m.scrollY <= 1, `${where}: vertical scroll ${m.scrollY}`);
-        const { repNum, timerNum, exName, phase } = m.sizes;
+        const { repNum, timerNum, exName, phase, credit } = m.sizes;
+        assert.equal(m.credit, 'Exercise Timer: An App by Mance Davis', `${where}: credit text`);
+        assert.ok(credit >= 12 && credit < timerNum / 2 && credit < exName, `${where}: credit (${credit}px) legible but much smaller than the digits`);
         assert.ok(repNum > timerNum, `${where}: rep (${repNum}) larger than timer (${timerNum})`);
         assert.ok(timerNum > Math.max(exName, phase) || label === 'complete', `${where}: timer (${timerNum}) larger than labels`);
         await ctx.close();

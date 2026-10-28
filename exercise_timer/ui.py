@@ -13,6 +13,7 @@ from .transfer import (MAX_BYTES, ImportFileError, export_filename, export_text,
 
 TICK_MS = 40
 FONT = "Segoe UI"
+CREDIT = "Exercise Timer: An App by Mance Davis"
 BG, PANEL, FG, DIM, ERR = "#000000", "#181818", "#ffffff", "#9aa0a6", "#ff6b6b"
 PHASE_COLORS = {
     "idle": "#cfd8dc", "get_ready": "#ffd23f", "hold": "#39ff7a",
@@ -30,6 +31,7 @@ def layout_metrics(width, height):
         "name": 0.055 * h, "set": 0.04 * h, "phase": 0.06 * h,
         "numeral": 0.32 * h, "total": 0.10 * h, "caption": 0.04 * h,
         "timer": 0.135 * h, "suffix": 0.06 * h, "banner": 0.045 * h,
+        "credit": max(12, 0.028 * h),
     }
 
 
@@ -682,6 +684,7 @@ class App:
             self._group(c, h * 0.79, d.timer_text, m["timer"], d.timer_suffix, m["suffix"],
                         color, w * 0.94, cx)
         text(0.93, d.banner, "banner", FG, "normal")
+        text(0.978, CREDIT, "credit", DIM, "normal")
 
 
 def run():

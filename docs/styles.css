@@ -17,7 +17,7 @@ body {
 [hidden] { display: none !important; }
 
 #app {
-  height: 100vh; height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto;
+  height: 100vh; height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto auto;
   grid-template-columns: minmax(0, 1fr);   /* never let wide content stretch the page */
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   user-select: none; -webkit-user-select: none;
@@ -84,6 +84,9 @@ body {
 #controls { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 12px 10px; }
 #controls .btn { flex: 1 1 28%; }
 @media (orientation: landscape) { #controls { flex-wrap: nowrap; padding: 6px 12px 8px; } #controls .btn { flex: 1 1 0; } }
+
+#credit { text-align: center; color: var(--dim); font-size: max(12px, min(2.2vh, 3.4vw)); padding: 0 12px 8px; }
+@media (orientation: landscape) { #credit { padding-bottom: 4px; } }
 
 .btn {
   font: inherit; font-size: 17px; color: var(--fg); background: #2b2b2b; border: 1px solid #555;
